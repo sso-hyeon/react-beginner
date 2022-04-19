@@ -40,7 +40,9 @@ function App() {
                     placeholder="Write your to do..."
                     style={{ width: "300px", marginRight: "10px" }}
                 />
-                <Button type="primary">Add To Do</Button>
+                <Button type="primary" htmlType="submit">
+                    Add To Do
+                </Button>
             </form>
             <hr style={{ margin: "20px 0" }} />
             <List bordered size="small" dataSource={toDos} renderItem={item => <List.Item>{item}</List.Item>} />
