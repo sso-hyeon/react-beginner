@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "antd/dist/antd.css";
-import { Input, Button } from "antd";
+import { Input, Button, List } from "antd";
 
 function App() {
     const [toDo, setToDo] = useState("");
@@ -16,7 +16,22 @@ function App() {
     };
     return (
         <div style={{ margin: "10px 20px" }}>
-            <h1>My To Dos ({toDos.length})</h1>
+            <h1>
+                My To Dos{" "}
+                <span
+                    style={{
+                        backgroundColor: "yellowgreen",
+                        display: "inline-block",
+                        width: "40px",
+                        textAlign: "center",
+                        lineHeight: "40px",
+                        borderRadius: "50%",
+                        color: "#fff"
+                    }}
+                >
+                    {toDos.length}
+                </span>
+            </h1>
             <form onSubmit={onSubmit}>
                 <Input
                     onChange={onChange}
@@ -27,12 +42,8 @@ function App() {
                 />
                 <Button type="primary">Add To Do</Button>
             </form>
-            <hr />
-            <ul>
-                {toDos.map((item, index) => (
-                    <li key={index}>{item}</li>
-                ))}
-            </ul>
+            <hr style={{ margin: "20px 0" }} />
+            <List bordered size="small" dataSource={toDos} renderItem={item => <List.Item>{item}</List.Item>} />
         </div>
     );
 }
