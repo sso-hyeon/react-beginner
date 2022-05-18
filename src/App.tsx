@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { createGlobalStyle } from "styled-components";
 import ToDoList from "./components/ToDoList";
 
@@ -55,10 +56,17 @@ q:before, q:after {
   }
   body {
     font-weight: 300;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Mali', cursive ,sans-serif;
     background-color:${props => props.theme.bgColor};
     color:${props => props.theme.textColor};
     line-height: 1.2;
+  }
+  body::-webkit-scrollbar {
+    width:5px;
+    background-color:#eee
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: #55D8C1;
   }
   a {
     text-decoration:none;
@@ -67,6 +75,13 @@ q:before, q:after {
 function App() {
     return (
         <>
+            <Helmet>
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Mali:wght@300;400;500;600&display=swap"
+                    rel="stylesheet"
+                />
+                <title>TO DO LIST</title>
+            </Helmet>
             <GlobalStyle />
             <ToDoList />
         </>
